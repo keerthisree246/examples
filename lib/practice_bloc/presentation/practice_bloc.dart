@@ -14,6 +14,7 @@ class BlocPractice extends Bloc<BlocPracticeEvent, BlocPracticeState>{
     }catch(e){
       emit(BlocPracticeError('failed$e'));
     }
-},);
+}
+);
 }
 }

@@ -9,7 +9,6 @@ class BlocRepoImpl extends BlocRepo{
   Future<List<dynamic>> getPost() async{
     final uri = Uri.parse('https://jsonplaceholder.typicode.com/posts');
     final response = await http.get(uri);
-
     if(response.statusCode == 200){
       final List<dynamic> data = jsonDecode(response.body);
       return data;

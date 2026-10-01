@@ -75,8 +75,6 @@ class PracticeBlocScreen extends StatelessWidget {
               },
             );
           }
-    
-          // Initial
           return const Center(
             child: Text('No data'),
           );
