@@ -9,18 +9,13 @@ class Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-    // BlocProvider(
-    //   create: (context) => UserCubit()..fetchUsers(),
-    //   child:
-    Scaffold(
+    return Scaffold(
       appBar: AppBar(title: const Text('Users')),
       body: BlocBuilder<UserBloc, UserDataState>(
         builder: (context, state) {
           if (state is UserDataLoading) {
             return const Center(child: CircularProgressIndicator());
           }
-
           if (state is UserDataSuccess) {
             return Column(
               children: [
@@ -56,7 +51,6 @@ class Screen extends StatelessWidget {
               ],
             );
           }
-
           if (state is UserDataError) {
             return Center(
               child: Column(
@@ -76,7 +70,6 @@ class Screen extends StatelessWidget {
               ),
             );
           }
-
           return const SizedBox.shrink();
         },
       ),

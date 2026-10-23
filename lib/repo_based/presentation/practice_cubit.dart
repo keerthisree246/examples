@@ -15,7 +15,6 @@ class PracticeCubit  extends Cubit<PracticeState>{
     throw Exception('failed to get the data$e');
   }
   }
-
 }
 abstract class PracticeState{}
 class PracticeInitial extends PracticeState{}

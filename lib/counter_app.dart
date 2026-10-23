@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Example extends StatefulWidget {
-  const Example({super.key});
+class CounterApp extends StatefulWidget {
+  const CounterApp({super.key});
 
   @override
-  State<Example> createState() => _ExampleState();
+  State<CounterApp> createState() => _CounterAppState();
 }
 
-class _ExampleState extends State<Example> {
+class _CounterAppState extends State<CounterApp> {
   int count = 0;
   void increment(){
     setState(() {

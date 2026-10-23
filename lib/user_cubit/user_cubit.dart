@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:example/user_cubit/user_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;

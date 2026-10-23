@@ -1,13 +1,18 @@
+import 'package:example/user_login/data/user_login_repo_impl.dart';
+import 'package:example/user_login/presentation/ui/user_login_screen.dart';
+import 'package:example/user_login/presentation/user_login_bloc/user_login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class CounterAppExample extends StatefulWidget {
-  const CounterAppExample({super.key});
+class ToDoScreen extends StatefulWidget {
+  const ToDoScreen({super.key});
 
   @override
-  State<CounterAppExample> createState() => _CounterAppExampleState();
+  State<ToDoScreen> createState() => _ToDoScreenState();
 }
 
-class _CounterAppExampleState extends State<CounterAppExample> {
+class _ToDoScreenState extends State<ToDoScreen> {
   final TextEditingController _desc = TextEditingController();
   final List<String> task = [];
   int selectedIndex = 0;
@@ -25,11 +30,13 @@ class _CounterAppExampleState extends State<CounterAppExample> {
       task.removeAt(index);
     });
   }
+
   @override
   void dispose() {
     _desc.dispose();
     super.dispose();
   }
+
   Widget _homePage() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -73,15 +80,13 @@ class _CounterAppExampleState extends State<CounterAppExample> {
       ),
     );
   }
+
   Widget _profilePage() {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const CircleAvatar(
-            radius: 40,
-            child: Icon(Icons.person, size: 40),
-          ),
+          const CircleAvatar(radius: 40, child: Icon(Icons.person, size: 40)),
           const SizedBox(height: 12),
           const Text('Name', style: TextStyle(fontSize: 20)),
           const SizedBox(height: 8),
@@ -97,15 +102,30 @@ class _CounterAppExampleState extends State<CounterAppExample> {
       appBar: AppBar(
         title: Text(selectedIndex == 0 ? 'TO DO APP' : 'PROFILE'),
         actions: [
-          TextButton(onPressed: () {}, child: const Icon(Icons.settings)),
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () async {
+              await const FlutterSecureStorage().deleteAll();
+
+              if (!context.mounted) return;
+
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BlocProvider(
+                    create: (context) => UserLoginCubit(UserLoginRepoImpl()),
+                    child: const UserLoginScreen(),
+                  ),
+                ),
+                (route) => false,
+              );
+            },
+          ),
         ],
       ),
       body: IndexedStack(
         index: selectedIndex,
-        children: [
-          _homePage(),
-          _profilePage()
-        ],
+        children: [_homePage(), _profilePage()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,

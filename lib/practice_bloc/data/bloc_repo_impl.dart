@@ -12,8 +12,7 @@ class BlocRepoImpl extends BlocRepo{
     if(response.statusCode == 200){
       final List<dynamic> data = jsonDecode(response.body);
       return data;
-
-    }
+      }
     throw Exception('failed to fetch the data');
   }
 }

@@ -64,10 +64,8 @@ class _PracticeScreenState extends State<PracticeScreen> {
             );
           }
           return  const SizedBox();
-
-      }
+          }
       ),
-
-    );
+      );
   }
 }

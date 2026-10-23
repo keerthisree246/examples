@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "415708671259",
+    "firebase_url": "https://example-935db-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "example-935db",
     "storage_bucket": "example-935db.firebasestorage.app"
   },

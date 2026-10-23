@@ -21,8 +21,6 @@ class PracticeBlocScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
-    
-          // Error
           if (state is BlocPracticeError) {
             return Center(
               child: Column(

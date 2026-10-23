@@ -24,7 +24,7 @@ class _DataScreenState extends State<DataScreen> {
         }
         else if(state is DataError){
           return Center(
-            child: Row(
+            child: Column(
               children: [
                 Text(state.message),
                 TextButton(onPressed: ()=> context.read<DataCubit>().dataUsers(), child: Text('retry'))

@@ -55,6 +55,7 @@ class DefaultFirebaseOptions {
     appId: '1:415708671259:android:201c5685dfd901b58af7be',
     messagingSenderId: '415708671259',
     projectId: 'example-935db',
+    databaseURL: 'https://example-935db-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'example-935db.firebasestorage.app',
   );
   static const FirebaseOptions ios = FirebaseOptions(
