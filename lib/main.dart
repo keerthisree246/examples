@@ -1,5 +1,6 @@
 import 'package:example/firebase_options.dart';
 import 'package:example/user_login/data/user_login_repo_impl.dart';
+import 'package:example/user_login/presentation/ui/gate_entry_screen.dart';
 import 'package:example/user_login/presentation/ui/splash_screen.dart';
 import 'package:example/user_login/presentation/ui/user_login_screen.dart';
 import 'package:example/user_login/presentation/user_login_bloc/user_login_cubit.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
     //     create: (context) => BlocPractice(BlocRepoImpl())..add(GetPostData()),
     //     child: const PracticeBlocScreen()),
     //   );
-    home: SplashScreen(),
+    home: GateEntryScreen(),
     );
   }
 }

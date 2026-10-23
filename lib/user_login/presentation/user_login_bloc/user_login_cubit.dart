@@ -16,9 +16,6 @@ class UserLoginCubit extends Cubit<UserLoginState>{
     }
     }
   }
-
-
-
 abstract class UserLoginState{}
 class UserLoginInitial extends UserLoginState{}
 class UserLoginLoading extends UserLoginState{}

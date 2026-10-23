@@ -15,6 +15,8 @@ class _UserLoginScreenState extends State<UserLoginScreen> {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  bool isVisible = false;
+
   @override
   void dispose() {
     usernameController.dispose();
@@ -57,12 +59,18 @@ class _UserLoginScreenState extends State<UserLoginScreen> {
                 const SizedBox(height: 16),
                 TextField(
                   controller: passwordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
+                  obscureText: !isVisible,
+                  decoration:  InputDecoration(
                     labelText: 'Password',
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.lock),
+                    suffixIcon: IconButton(onPressed: (){
+                      setState(() {
+                        isVisible = !isVisible;
+                      });
+                    } , icon: isVisible? Icon(Icons.visibility) : Icon(Icons.visibility_off))
                   ),
+                  
                 ),
                 const SizedBox(height: 20),
                 SizedBox(
@@ -82,7 +90,6 @@ class _UserLoginScreenState extends State<UserLoginScreen> {
                         );
                         return;
                       }
-
                       context.read<UserLoginCubit>().auth(
                             username,
                             password,

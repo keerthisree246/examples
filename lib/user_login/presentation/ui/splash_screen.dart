@@ -1,5 +1,4 @@
 import 'package:example/to_do.dart';
-import 'package:example/user_login/data/user_login_repo.dart';
 import 'package:example/user_login/data/user_login_repo_impl.dart';
 import 'package:example/user_login/presentation/ui/user_login_screen.dart';
 import 'package:example/user_login/presentation/user_login_bloc/user_login_cubit.dart';
@@ -29,7 +28,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
     if (!mounted) return;
     final isLoggedIn = apiKey != null && apiSecret != null;
-
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -42,7 +40,6 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(body: Center(child: CircularProgressIndicator()));
