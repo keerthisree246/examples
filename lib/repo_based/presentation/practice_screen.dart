@@ -21,12 +21,12 @@ class _PracticeScreenState extends State<PracticeScreen> {
               child: CircularProgressIndicator(),
             );
           }
-          else if(state is PrcaticeError){
+          else if(state is PracticeError){
             return Center(
               child: Row(
                 children: [
                   Text(state.message),
-                  TextButton(onPressed: ()=> context.read<PracticeCubit>().getData(), 
+                  TextButton(onPressed: ()=> context.read<PracticeCubit>()..getData(), 
                   child: Text('Retry'))
                 ],
               ),
@@ -48,11 +48,11 @@ class _PracticeScreenState extends State<PracticeScreen> {
                   //   }
                   //   )
                   child: GridView.builder(
-                    itemCount: state.success.length,
+                    itemCount: state.data.length,
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
                     ), 
                     itemBuilder: (context,index){
-                      final post = state.success[index];
+                      final post = state.data[index];
                         return Card(
                         child: ListTile(title: Text(post['id'].toString()),
                         subtitle: Text(post['title'].toString()),

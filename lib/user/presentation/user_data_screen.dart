@@ -16,13 +16,11 @@ class _UserDataScreenState extends State<UserDataScreen> {
   void initState() {
     super.initState();
     _requestLocationPermission();
-
-  }
+    }
   Future<void> _requestLocationPermission() async {
   final status = await Permission.location.request();
 
   if (status.isGranted) {
-    print('Location permission granted');
   } else if (status.isDenied) {
     print('Location permission denied');
   } else if (status.isPermanentlyDenied) {

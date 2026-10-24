@@ -80,7 +80,6 @@ class _ToDoScreenState extends State<ToDoScreen> {
       ),
     );
   }
-
   Widget _profilePage() {
     return Center(
       child: Column(
@@ -106,9 +105,7 @@ class _ToDoScreenState extends State<ToDoScreen> {
             icon: const Icon(Icons.logout),
             onPressed: () async {
               await const FlutterSecureStorage().deleteAll();
-
               if (!context.mounted) return;
-
               Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(

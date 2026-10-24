@@ -16,7 +16,7 @@ class UserLoginRepoImpl extends UserLoginRepo{
         'Content-Type': 'application/json',
       },
     body: jsonEncode({
-      'usr': usr,
+    'usr': usr,
     'pwd': pwd
     }));
     if (response.statusCode == 200) {
@@ -25,12 +25,11 @@ class UserLoginRepoImpl extends UserLoginRepo{
 
       await _storage.write(key: 'api_key', value: message['api_key']);
       await _storage.write(key: 'api_secret', value: message['api_secret']);
-      final savedKey = await _storage.read(key: 'api_key');
-print('Saved api_key: $savedKey');
+      // final savedKey = await _storage.read(key: 'api_key');
+      // print('Saved api_key: $savedKey');
     }
     return response.body;
-    
-    }
+}
     
      Future<String?> getApiKey() => _storage.read(key: 'api_key');
      Future<String?> getApiSecret() => _storage.read(key: 'api_secret');

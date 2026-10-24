@@ -42,12 +42,17 @@ class UserScreen extends StatelessWidget {
                             SnackBar(content: Text('${user['id']} deleted')),
                           );
                         },
-                        child: Card(
-                          child: ListTile(
-                            leading: CircleAvatar(child: Text(user['id'].toString())),
-                            title: Text(user['name']),
-                            subtitle: Text(user['email']),
-                            // subtitle: Text(user['completed'] ? 'Completed' : 'Not Completed'),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Card(
+                            shadowColor: Colors.red,
+                            
+                            child: ListTile(
+                              leading: CircleAvatar(child: Text(user['id'].toString())),
+                              title: Text(user['name']),
+                              subtitle: Text(user['email']),
+                              // subtitle: Text(user['completed'] ? 'Completed' : 'Not Completed'),
+                            ),
                           ),
                         ),
                       );
